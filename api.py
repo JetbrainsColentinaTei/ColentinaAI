@@ -16,7 +16,7 @@ class GrazieApiGateWayClient:
 
     def chat(self):
         client = GrazieApiGatewayClient(
-            url=GrazieApiGatewayUrls.PRODUCTION,
+            url=GrazieApiGatewayUrls.STAGING,
             grazie_jwt_token=self.token,
             auth_type=AuthType.APPLICATION,
         )
