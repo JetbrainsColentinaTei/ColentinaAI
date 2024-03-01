@@ -1,6 +1,6 @@
 import os
 import socket
-from prompt import BasePrompt
+from src.prompt import BasePrompt
 from grazie.api.client.gateway import AuthType, GrazieApiGatewayClient, GrazieHeaders
 from grazie.api.client.chat.prompt import ChatPrompt
 from grazie.api.client.endpoints import GrazieApiGatewayUrls
@@ -15,7 +15,6 @@ class GrazieApiGateWayClient:
             raise ValueError("GRAZIE_JWT_TOKEN environment variable is not set. Please set it to your JWT token.")
 
     def chat(self, code: BasePrompt):
-        print(str(code))
         return self._chat(str(code))
 
     def _chat(self, text: str):
