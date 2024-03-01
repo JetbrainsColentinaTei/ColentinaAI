@@ -14,7 +14,7 @@ class ErrorAnalysisPrompt(BasePrompt):
                        f"Provide a hint that guides the student towards understanding the error and fixing it, "
                        f"without directly giving the solution. Consider potential causes of the error and offer "
                        f"debugging strategies.")
-        if task is not None:
+        if task:
             self.prompt = f"The task is: {task}\n{self.prompt}"
 
 
@@ -22,7 +22,7 @@ class CodeAnalysisPrompt(BasePrompt):
     def __init__(self, code: str, task: str = None):
         super().__init__(task)
         self.prompt = f"The student's code is:\n{code}\n"
-        if task is not None:
+        if task:
             self.prompt += f"The task is: {task}\n"
         self.prompt += ("Analyze the code for readability and adherence to common style conventions. "
                         "Provide suggestions for improvement, such as better variable naming, formatting, "
