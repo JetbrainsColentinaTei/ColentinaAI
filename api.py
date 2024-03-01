@@ -1,5 +1,6 @@
 import os
 import socket
+from prompt import BasePrompt
 from grazie.api.client.gateway import AuthType, GrazieApiGatewayClient, GrazieHeaders
 from grazie.api.client.chat.prompt import ChatPrompt
 from grazie.api.client.endpoints import GrazieApiGatewayUrls
@@ -12,9 +13,12 @@ class GrazieApiGateWayClient:
         self.ip = socket.gethostbyname(socket.gethostname())
         if self.token is None:
             raise ValueError("GRAZIE_JWT_TOKEN environment variable is not set. Please set it to your JWT token.")
-        print(self.token)
 
-    def chat(self):
+    def chat(self, code: BasePrompt):
+        print(str(code))
+        return self._chat(str(code))
+
+    def _chat(self, text: str):
         client = GrazieApiGatewayClient(
             url=GrazieApiGatewayUrls.STAGING,
             grazie_jwt_token=self.token,
@@ -23,8 +27,9 @@ class GrazieApiGateWayClient:
         response = client.chat(
             chat=(
                 ChatPrompt()
-                .add_system("You are a helpful assistant.")
-                .add_user("Who won the world series in 2020?")
+                .add_system("You are an assistant that helps students solve educational programming tasks without "
+                            "providing the answer.")
+                .add_user(text)
             ),
             profile=Profile.OPENAI_GPT_4,
             headers={
