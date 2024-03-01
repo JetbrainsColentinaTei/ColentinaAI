@@ -8,12 +8,14 @@ class BasePrompt:
 
 
 class ErrorAnalysisPrompt(BasePrompt):
-    def __init__(self, code: str, task: str, error: str):
+    def __init__(self, code: str, error: str, task: str = None):
         super().__init__(task)
-        self.prompt = (f"The task is: {task}\nThe student's code is:\n{code}\nThe error message is: {error}\n"
+        self.prompt = (f"The student's code is:\n{code}\nThe error message is: {error}\n"
                        f"Provide a hint that guides the student towards understanding the error and fixing it, "
                        f"without directly giving the solution. Consider potential causes of the error and offer "
                        f"debugging strategies.")
+        if task is not None:
+            self.prompt = f"The task is: {task}\n{self.prompt}"
 
 
 class CodeAnalysisPrompt(BasePrompt):

@@ -13,7 +13,7 @@ class TestApi(unittest.TestCase):
         self.assertIsNotNone(response)
 
     def test_prompt_error(self):
-        prompt = ErrorAnalysisPrompt("code", "task", "error")
+        prompt = ErrorAnalysisPrompt("code", "error", "task")
         self.assertEqual(str(prompt), "The task is: task\nThe student's code is:\ncode\n"
                                       "The error message is: error\nProvide a hint that guides "
                                       "the student towards understanding the error and fixing it, "
