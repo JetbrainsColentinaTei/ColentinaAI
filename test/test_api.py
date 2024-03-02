@@ -15,7 +15,7 @@ class TestApi(unittest.TestCase):
     def test_prompt_error(self):
         prompt = ErrorAnalysisPrompt("code", "error", "task")
         self.assertEqual(str(prompt), ('The task is: task\n'
-                                       "The student's code is:\n"
+                                       "The code is:\n"
                                        'code\n'
                                        '\n'
                                        'The error message is: error\n'
@@ -26,7 +26,7 @@ class TestApi(unittest.TestCase):
     def test_prompt_code(self):
         prompt = CodeAnalysisPrompt("code", "task")
         self.assertEqual(str(prompt), ('The task is: task\n'
-                                       "The student's code is:\n"
+                                       "The code is:\n"
                                        'code\n'
                                        'Analyze the code for readability and adherence to common style conventions. '
                                        'Provide suggestions for improvement, such as better variable naming, '
@@ -35,7 +35,7 @@ class TestApi(unittest.TestCase):
     def test_prompt_concept(self):
         prompt = ConceptAnalysisPrompt("concept", "code", "task")
         self.assertEqual(str(prompt), ('The task is: task\n'
-                                       "The student's code is:\n"
+                                       "The code is:\n"
                                        'code\n'
                                        'The following concept is relevant: concept\n'
                                        'Explain the concept clearly and concisely. Provide examples to illustrate '

@@ -6,7 +6,7 @@ class BasePrompt:
         if task:
             self.prompt = f"The task is: {task}\n"
         if code:
-            self.prompt += f"The student's code is:\n{code}\n"
+            self.prompt += f"The code is:\n{code}\n"
 
     def __str__(self):
         return self.prompt
