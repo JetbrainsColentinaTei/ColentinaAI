@@ -14,8 +14,8 @@ class GrazieApiGateWayClient:
         if self.token is None:
             raise ValueError("GRAZIE_JWT_TOKEN environment variable is not set. Please set it to your JWT token.")
 
-    def chat(self, code: BasePrompt):
-        return self._chat(str(code))
+    def chat(self, prompt: BasePrompt):
+        return self._chat(str(prompt))
 
     def _chat(self, text: str):
         client = GrazieApiGatewayClient(

@@ -14,22 +14,38 @@ class TestApi(unittest.TestCase):
 
     def test_prompt_error(self):
         prompt = ErrorAnalysisPrompt("code", "error", "task")
-        self.assertEqual(str(prompt), "The task is: task\nThe student's code is:\ncode\n"
-                                      "The error message is: error\nProvide a hint that guides "
-                                      "the student towards understanding the error and fixing it, "
-                                      "without directly giving the solution. Consider potential causes of "
-                                      "the error and offer debugging strategies.")
+        self.assertEqual(str(prompt), ('The task is: task\n'
+                                       "The student's code is:\n"
+                                       'code\n'
+                                       '\n'
+                                       'The error message is: error\n'
+                                       'Provide a hint that guides the student towards understanding the error and '
+                                       'fixing it, without directly giving the solution. Consider potential causes '
+                                       'of the error and offer debugging strategies.'))
 
     def test_prompt_code(self):
         prompt = CodeAnalysisPrompt("code", "task")
-        self.assertEqual(str(prompt), "The student's code is:\ncode\nThe task is: task\n"
-                                      "Analyze the code for readability and adherence to common style conventions. "
-                                      "Provide suggestions for improvement, such as better variable naming, "
-                                      "formatting, or commenting. Explain the benefits of good code style. ")
+        self.assertEqual(str(prompt), ('The task is: task\n'
+                                       "The student's code is:\n"
+                                       'code\n'
+                                       'Analyze the code for readability and adherence to common style conventions. '
+                                       'Provide suggestions for improvement, such as better variable naming, '
+                                       'formatting, or commenting. While not providing a direct code solution.'))
 
     def test_prompt_concept(self):
-        prompt = ConceptAnalysisPrompt("concept")
-        self.assertEqual(str(prompt), "The following concept is relevant: concept\n"
-                                      "Explain the concept clearly and concisely. "
-                                      "Provide examples to illustrate how it's used in programming. "
-                                      "If possible, relate it to the student's current task. ")
+        prompt = ConceptAnalysisPrompt("concept", "code", "task")
+        self.assertEqual(str(prompt), ('The task is: task\n'
+                                       "The student's code is:\n"
+                                       'code\n'
+                                       'The following concept is relevant: concept\n'
+                                       'Explain the concept clearly and concisely. Provide examples to illustrate '
+                                       "how it's used in programming. If possible, relate it to the student's "
+                                       'current task. '))
+
+    def test_prompt_concept2(self):
+        prompt = ConceptAnalysisPrompt("concept", task="task")
+        self.assertEqual(str(prompt), ('The task is: task\n'
+                                       'The following concept is relevant: concept\n'
+                                       'Explain the concept clearly and concisely. Provide examples to illustrate '
+                                       "how it's used in programming. If possible, relate it to the student's "
+                                       'current task. '))
