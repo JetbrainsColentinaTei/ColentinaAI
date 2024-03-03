@@ -1,0 +1,15 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.jetbrainscolentinatei.colentinaaiclient</id>
+    <name>Colentina-Ai-Client</name>
+    <vendor url="https://github.com/JetbrainsColentinaTei">JetbrainsColentinaTei (unaffiliated with JetBrains)</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.github.jetbrainscolentinatei.colentinaaiclient.toolWindow.MyToolWindowFactory" id="Colentina AI"
+                    anchor="right"/>
+    </extensions>
+</idea-plugin>
