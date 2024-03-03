@@ -13,9 +13,7 @@ This is our attempt at creating an AI companion that helps students solve progra
 3. Run the server:
 
     ```bash
-    GRAZIE_JWT_TOKEN="<your grazie jwt token>" python
-
-    >>> py src/__init__.py
+    GRAZIE_JWT_TOKEN="<your grazie jwt token>" python src/__init__.py
     ```
 
 4. Install the plugin in your IntelliJ IDE of choice. You can download it from [here](https://github.com/JetbrainsColentinaTei/ColentinaAI/releases).
