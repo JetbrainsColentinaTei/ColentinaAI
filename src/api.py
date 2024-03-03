@@ -1,6 +1,6 @@
 import os
 import socket
-from src.prompt import BasePrompt
+from prompt import BasePrompt
 from grazie.api.client.gateway import AuthType, GrazieApiGatewayClient, GrazieHeaders
 from grazie.api.client.chat.prompt import ChatPrompt
 from grazie.api.client.endpoints import GrazieApiGatewayUrls

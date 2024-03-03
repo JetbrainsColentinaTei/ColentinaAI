@@ -1,6 +1,6 @@
 from flask import Flask, request
-from src.api import GrazieApiGateWayClient
-from src.prompt import ErrorAnalysisPrompt, CodeAnalysisPrompt, ConceptAnalysisPrompt
+from api import GrazieApiGateWayClient
+from prompt import ErrorAnalysisPrompt, CodeAnalysisPrompt, ConceptAnalysisPrompt
 
 api = GrazieApiGateWayClient()
 app = Flask(__name__)
