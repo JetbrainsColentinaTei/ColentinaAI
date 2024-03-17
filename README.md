@@ -1,11 +1,12 @@
 # ColentinaAI
-This is our attempt at creating an AI companion that helps students solve programming questions with tests
+### 2nd Place in the JetBrains Hackathon
+This is our attempt at creating an AI companion that helps students solve programming questions with tests.
 
 
 ## How to run
 
 1. Clone the repository
-2. Install the needed python server dependencies:
+2. Install the needed Python server dependencies:
     ```bash
     pip install --extra-index-url https://packages.jetbrains.team/pypi/p/grazi/jetbrains-ai-platform-public/simple grazie-api-gateway-client==0.0.19
     pip install flask
